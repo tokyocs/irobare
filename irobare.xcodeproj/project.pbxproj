@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE215702215C69EE00878695 /* 内包する大地.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215701215C69ED00878695 /* 内包する大地.mp3 */; };
+		FE215704215C6A0A00878695 /* 風.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215703215C6A0A00878695 /* 風.mp3 */; };
+		FE215706215C6A4500878695 /* The entrance of Queen of fate.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215705215C6A4500878695 /* The entrance of Queen of fate.mp3 */; };
 		FEEBED9A2154C691004A12D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBED992154C691004A12D3 /* AppDelegate.swift */; };
 		FEEBED9C2154C691004A12D3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEEBED9B2154C691004A12D3 /* GameScene.sks */; };
 		FEEBED9E2154C691004A12D3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEEBED9D2154C691004A12D3 /* Actions.sks */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE215701215C69ED00878695 /* 内包する大地.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "内包する大地.mp3"; sourceTree = "<group>"; };
+		FE215703215C6A0A00878695 /* 風.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "風.mp3"; sourceTree = "<group>"; };
+		FE215705215C6A4500878695 /* The entrance of Queen of fate.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The entrance of Queen of fate.mp3"; sourceTree = "<group>"; };
 		FEEBED962154C691004A12D3 /* irobare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = irobare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEBED992154C691004A12D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEEBED9B2154C691004A12D3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -110,6 +116,9 @@
 				FEEBEDA12154C691004A12D3 /* GameViewController.swift */,
 				FEEBEDA32154C691004A12D3 /* Main.storyboard */,
 				FEEBEDA62154C691004A12D3 /* Assets.xcassets */,
+				FE215701215C69ED00878695 /* 内包する大地.mp3 */,
+				FE215703215C6A0A00878695 /* 風.mp3 */,
+				FE215705215C6A4500878695 /* The entrance of Queen of fate.mp3 */,
 				FEEBEDA82154C691004A12D3 /* LaunchScreen.storyboard */,
 				FEEBEDAB2154C691004A12D3 /* Info.plist */,
 			);
@@ -241,11 +250,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE215706215C6A4500878695 /* The entrance of Queen of fate.mp3 in Resources */,
 				FEEBEDA52154C691004A12D3 /* Main.storyboard in Resources */,
 				FEEBED9C2154C691004A12D3 /* GameScene.sks in Resources */,
 				FEEBEDA72154C691004A12D3 /* Assets.xcassets in Resources */,
+				FE215702215C69EE00878695 /* 内包する大地.mp3 in Resources */,
 				FEEBEDAA2154C691004A12D3 /* LaunchScreen.storyboard in Resources */,
 				FEEBED9E2154C691004A12D3 /* Actions.sks in Resources */,
+				FE215704215C6A0A00878695 /* 風.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +441,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tcs.irobare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -441,6 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = tcs.irobare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -517,6 +531,7 @@
 				FEEBEDC62154C692004A12D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEEBEDC72154C692004A12D3 /* Build configuration list for PBXNativeTarget "irobareTests" */ = {
 			isa = XCConfigurationList;
@@ -525,6 +540,7 @@
 				FEEBEDC92154C692004A12D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FEEBEDCA2154C692004A12D3 /* Build configuration list for PBXNativeTarget "irobareUITests" */ = {
 			isa = XCConfigurationList;
@@ -533,6 +549,7 @@
 				FEEBEDCC2154C692004A12D3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
