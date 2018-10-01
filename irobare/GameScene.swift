@@ -8,11 +8,32 @@
 
 import SpriteKit
 import GameplayKit
+//音
+import AVFoundation
 
-class GameScene: SKScene {
+class GameScene: SKScene, AVAudioPlayerDelegate{
     
-    private var label : SKLabelNode?
-    private var spinnyNode : SKShapeNode?
+    //
+    //音
+    var audioPlayer: AVAudioPlayer!
+    func playSound(name: String) {
+        guard let path = Bundle.main.path(forResource: name, ofType: "mp3") else {
+            print("音源ファイルが見つかりません")
+            return
+        }
+        
+        do {
+            // AVAudioPlayerのインスタンス化
+            audioPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            
+            // AVAudioPlayerのデリゲートをセット
+            audioPlayer.delegate = self
+            
+            // 音声の再生
+            audioPlayer.play()
+        } catch {
+        }
+    }
     
     override func didMove(to view: SKView) {
         
@@ -21,27 +42,15 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.green
-            self.addChild(n)
-        }
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.blue
-            self.addChild(n)
-        }
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
-        if let n = self.spinnyNode?.copy() as! SKShapeNode? {
-            n.position = pos
-            n.strokeColor = SKColor.red
-            self.addChild(n)
-        }
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -49,15 +58,15 @@ class GameScene: SKScene {
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchMoved(toPoint: t.location(in: self)) }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
+        
     }
     
     
