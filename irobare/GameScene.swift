@@ -16,6 +16,22 @@ import AVFoundation
 class GameScene: SKScene, AVAudioPlayerDelegate{
     //バレーボール
     var bare_ball: SKSpriteNode!
+       //ボーリングボール
+    var boringball: SKSpriteNode!
+   //左向きやじるし
+    var hidarimuki: SKSpriteNode!
+    //右向き矢印
+    var migimuki: SKSpriteNode!
+     //トマトボール
+    var tomato: SKSpriteNode!
+    //トマト罰ゲーム味方
+    var tomatomikata: SKSpriteNode!
+    //トマト罰ゲーム敵
+    var tomatoteki: SKSpriteNode!
+    //潰れた味方
+    var tuburetamikata: SKSpriteNode!
+    //潰れた敵
+    var tuburetateki: SKSpriteNode!
     //音
     var audioPlayer: AVAudioPlayer!
     func playSound(name: String) {
