@@ -11,7 +11,10 @@ import GameplayKit
 //音
 import AVFoundation
 
+
+
 class GameScene: SKScene, AVAudioPlayerDelegate{
+    //バレーボール
     var bare_ball: SKSpriteNode!
     //音
     var audioPlayer: AVAudioPlayer!

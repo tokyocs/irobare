@@ -11,6 +11,7 @@
 		FE215704215C6A0A00878695 /* 風.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215703215C6A0A00878695 /* 風.mp3 */; };
 		FE215706215C6A4500878695 /* home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215705215C6A4500878695 /* home.mp3 */; };
 		FE21570E21632E2900878695 /* Fire.sks in Resources */ = {isa = PBXBuildFile; fileRef = FE21570D21632E2900878695 /* Fire.sks */; };
+		FE2157122163356B00878695 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE2157112163356B00878695 /* ViewController.swift */; };
 		FEEBED9A2154C691004A12D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBED992154C691004A12D3 /* AppDelegate.swift */; };
 		FEEBED9C2154C691004A12D3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEEBED9B2154C691004A12D3 /* GameScene.sks */; };
 		FEEBED9E2154C691004A12D3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEEBED9D2154C691004A12D3 /* Actions.sks */; };
@@ -45,6 +46,7 @@
 		FE215703215C6A0A00878695 /* 風.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "風.mp3"; sourceTree = "<group>"; };
 		FE215705215C6A4500878695 /* home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = home.mp3; sourceTree = "<group>"; };
 		FE21570D21632E2900878695 /* Fire.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Fire.sks; sourceTree = "<group>"; };
+		FE2157112163356B00878695 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		FEEBED962154C691004A12D3 /* irobare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = irobare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FEEBED992154C691004A12D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FEEBED9B2154C691004A12D3 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -124,6 +126,7 @@
 				FE215705215C6A4500878695 /* home.mp3 */,
 				FEEBEDA82154C691004A12D3 /* LaunchScreen.storyboard */,
 				FEEBEDAB2154C691004A12D3 /* Info.plist */,
+				FE2157112163356B00878695 /* ViewController.swift */,
 			);
 			path = irobare;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 			files = (
 				FEEBEDA02154C691004A12D3 /* GameScene.swift in Sources */,
 				FEEBEDA22154C691004A12D3 /* GameViewController.swift in Sources */,
+				FE2157122163356B00878695 /* ViewController.swift in Sources */,
 				FEEBED9A2154C691004A12D3 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
