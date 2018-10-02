@@ -12,8 +12,7 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene, AVAudioPlayerDelegate{
-    
-    //
+    var bare_ball: SKSpriteNode!
     //音
     var audioPlayer: AVAudioPlayer!
     func playSound(name: String) {
