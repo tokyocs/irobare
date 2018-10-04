@@ -22,7 +22,7 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     var hidarimuki: SKSpriteNode!
     //右向き矢印
     var migimuki: SKSpriteNode!
-     //トマトボール
+     //トマトボールp
     var tomato: SKSpriteNode!
     //トマト罰ゲーム味方
     var tomatomikata: SKSpriteNode!
@@ -33,6 +33,8 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     //潰れた敵
     var tuburetateki: SKSpriteNode!
     //音
+    var net: SKSpriteNode!
+    //ネット
     var audioPlayer: AVAudioPlayer!
     func playSound(name: String) {
         guard let path = Bundle.main.path(forResource: name, ofType: "mp3") else {

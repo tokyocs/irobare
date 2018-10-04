@@ -19,7 +19,7 @@ class GameViewController: UIViewController {
         bg.image = UIImage(named: "背景menu.png")
         bg.layer.zPosition = -1
         self.view.addSubview(bg)
-        let scene = GameScene(size:CGSize(width: 750,height: 1334))
+        let scene = GKScene(size:CGSize(width: 750,height: 1334))
         let skView = self.view as! SKView
         scene.scaleMode = .aspectFit
         skView.presentScene(scene)

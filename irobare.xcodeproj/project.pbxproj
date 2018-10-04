@@ -15,7 +15,6 @@
 		FEEBED9A2154C691004A12D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBED992154C691004A12D3 /* AppDelegate.swift */; };
 		FEEBED9C2154C691004A12D3 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEEBED9B2154C691004A12D3 /* GameScene.sks */; };
 		FEEBED9E2154C691004A12D3 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = FEEBED9D2154C691004A12D3 /* Actions.sks */; };
-		FEEBEDA02154C691004A12D3 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBED9F2154C691004A12D3 /* GameScene.swift */; };
 		FEEBEDA22154C691004A12D3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEEBEDA12154C691004A12D3 /* GameViewController.swift */; };
 		FEEBEDA52154C691004A12D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FEEBEDA32154C691004A12D3 /* Main.storyboard */; };
 		FEEBEDA72154C691004A12D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FEEBEDA62154C691004A12D3 /* Assets.xcassets */; };
@@ -289,7 +288,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FEEBEDA02154C691004A12D3 /* GameScene.swift in Sources */,
 				FEEBEDA22154C691004A12D3 /* GameViewController.swift in Sources */,
 				FE2157122163356B00878695 /* ViewController.swift in Sources */,
 				FEEBED9A2154C691004A12D3 /* AppDelegate.swift in Sources */,
