@@ -16,13 +16,13 @@ import AVFoundation
 class GameScene: SKScene, AVAudioPlayerDelegate{
     //バレーボール
     var bare_ball: SKSpriteNode!
-       //ボーリングボール
+    //ボーリングボール
     var boringball: SKSpriteNode!
-   //左向きやじるし
+    //左向きやじるし
     var hidarimuki: SKSpriteNode!
     //右向き矢印
     var migimuki: SKSpriteNode!
-     //トマトボール
+    //トマトボール
     var tomato: SKSpriteNode!
     //トマト罰ゲーム味方
     var tomatomikata: SKSpriteNode!
@@ -52,6 +52,8 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         } catch {
         }
     }
+    
+    
     
     override func didMove(to view: SKView) {
         
