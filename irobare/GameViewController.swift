@@ -16,7 +16,7 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         //背景
         let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        bg.image = UIImage(named: "背景menu.png")
+        bg.image = UIImage(named: "playscreen.png")
         bg.layer.zPosition = -1
         self.view.addSubview(bg)
         let scene = GameScene(size:CGSize(width: 750,height: 1334))
