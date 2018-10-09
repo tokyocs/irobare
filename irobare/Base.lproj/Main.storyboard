@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ゲームガチャ背景" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-ol-rpz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="gamegacha" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-ol-rpz">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -73,7 +73,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ボール選択画面" translatesAutoresizingMaskIntoConstraints="NO" id="07i-XO-Hmc">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ballselect" translatesAutoresizingMaskIntoConstraints="NO" id="07i-XO-Hmc">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -107,7 +107,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="背景menu" translatesAutoresizingMaskIntoConstraints="NO" id="LeW-Kq-Ony">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="menu" translatesAutoresizingMaskIntoConstraints="NO" id="LeW-Kq-Ony">
                                 <rect key="frame" x="-77" y="-50" width="1221" height="889"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -157,11 +157,11 @@
         </scene>
     </scenes>
     <resources>
-        <image name="ゲームガチャ背景" width="960" height="720"/>
-        <image name="ボール選択画面" width="960" height="720"/>
-        <image name="背景menu" width="499" height="330"/>
+        <image name="ballselect" width="960" height="720"/>
+        <image name="gamegacha" width="960" height="720"/>
+        <image name="menu" width="499" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Dnh-aA-Fma"/>
+        <segue reference="Yom-F3-mZn"/>
     </inferredMetricsTieBreakers>
 </document>
