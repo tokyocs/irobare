@@ -14,6 +14,8 @@ import AVFoundation
 
 
 class GameScene: SKScene, AVAudioPlayerDelegate{
+    //プレイヤー
+    var player: SKSpriteNode!
     //バレーボール
     var bare_ball: SKSpriteNode!
     //ボーリングボール
@@ -32,11 +34,26 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     var tuburetamikata: SKSpriteNode!
     //潰れた敵
     var tuburetateki: SKSpriteNode!
+    //ゲーム中の画面
+    var playscreen: SKSpriteNode!
     
     
     
     
     override func didMove(to view: SKView) {
+        
+        //背景
+        self.playscreen = SKSpriteNode(imageNamed: "playscreen")
+        self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
+        self.playscreen.size = self.size
+        addChild(self.playscreen)
+        
+        self.player = SKSpriteNode(imageNamed: "player")
+        self.player.position = CGPoint(x: 0, y: 0)
+        self.player.xScale = 2
+        self.player.yScale = 3
+        self.player.zPosition = 1
+        addChild(self.player)
         
     }
     
