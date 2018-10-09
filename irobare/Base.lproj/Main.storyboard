@@ -21,11 +21,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ゲームガチャ背景" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-ol-rpz">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="T0V-hf-p9A">
-                                <rect key="frame" x="20" y="20" width="87" height="48"/>
+                                <rect key="frame" x="47" y="686" width="173" height="74"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.78170262759999998" green="0.85964087040000003" blue="0.80570042860000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <state key="normal" title="←戻る"/>
                                 <connections>
                                     <segue destination="Pve-C2-xuN" kind="show" id="Dnh-aA-Fma"/>
@@ -37,7 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YM5-mE-i0D" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="-734"/>
+            <point key="canvasLocation" x="85.546875" y="-734.375"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -55,7 +59,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="90" y="1"/>
+            <point key="canvasLocation" x="89.6484375" y="0.78125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="KBp-i4-S4x">
@@ -69,14 +73,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7sV-32-BQw">
-                                <rect key="frame" x="20" y="20" width="87" height="48"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ボール選択画面" translatesAutoresizingMaskIntoConstraints="NO" id="07i-XO-Hmc">
+                                <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.78170262755101538" green="0.85964087041884818" blue="0.80570042860327018" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="szw-YI-W7Y">
+                                <rect key="frame" x="20" y="674" width="173" height="74"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.78170262759999998" green="0.85964087040000003" blue="0.80570042860000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
                                 <state key="normal" title="←戻る"/>
                                 <connections>
-                                    <segue destination="Pve-C2-xuN" kind="show" id="dDu-go-GD4"/>
+                                    <segue destination="Pve-C2-xuN" kind="show" id="Yom-F3-mZn"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -85,7 +93,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iFs-vg-qEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="86" y="733"/>
+            <point key="canvasLocation" x="85.546875" y="732.8125"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="bRF-8Q-IMk">
@@ -149,9 +157,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="ゲームガチャ背景" width="960" height="720"/>
+        <image name="ボール選択画面" width="960" height="720"/>
         <image name="背景menu" width="499" height="330"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dDu-go-GD4"/>
+        <segue reference="Dnh-aA-Fma"/>
     </inferredMetricsTieBreakers>
 </document>
