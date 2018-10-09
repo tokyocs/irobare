@@ -61,10 +61,17 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
         self.enemyPlayer.position = CGPoint(x: frame.width / 4, y: frame.midY - view.frame.size.height / 5)
-        self.enemyPlayer.xScale = 0.9
-        self.enemyPlayer.yScale = 0.9
+        self.enemyPlayer.xScale = 0.8
+        self.enemyPlayer.yScale = 0.8
         self.enemyPlayer.zPosition = 1
         addChild(self.enemyPlayer)
+        
+        self.migimuki = SKSpriteNode(imageNamed: "migimuki")
+        self.migimuki.position = CGPoint(x: -frame.width / 6, y: frame.midY - view.frame.size.height / 3)
+        self.migimuki.xScale = 0.7
+        self.migimuki.yScale = 0.7
+        self.migimuki.zPosition = 2
+        addChild(self.migimuki)
         
     }
     
