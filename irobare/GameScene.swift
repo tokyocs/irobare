@@ -16,6 +16,8 @@ import AVFoundation
 class GameScene: SKScene, AVAudioPlayerDelegate{
     //プレイヤー
     var player: SKSpriteNode!
+    //敵
+    var enemyPlayer: SKSpriteNode!
     //バレーボール
     var bare_ball: SKSpriteNode!
     //ボーリングボール
@@ -49,13 +51,20 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.playscreen.yScale = 1
         self.playscreen.zPosition = -1
         addChild(self.playscreen)
-        
+        //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
         self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
         self.player.xScale = 0.9
         self.player.yScale = 0.9
         self.player.zPosition = 1
         addChild(self.player)
+        //敵プレイヤー
+        self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
+        self.enemyPlayer.position = CGPoint(x: frame.width / 4, y: frame.midY - view.frame.size.height / 5)
+        self.enemyPlayer.xScale = 0.9
+        self.enemyPlayer.yScale = 0.9
+        self.enemyPlayer.zPosition = 1
+        addChild(self.enemyPlayer)
         
     }
     
