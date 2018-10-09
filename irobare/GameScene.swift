@@ -70,16 +70,16 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         addChild(self.enemyPlayer)
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
-        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 3)
-        self.migimuki.xScale = 0.7
-        self.migimuki.yScale = 0.9
+        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 4)
+        self.migimuki.xScale = 0.4
+        self.migimuki.yScale = 0.4
         self.migimuki.zPosition = 2
         addChild(self.migimuki)
         //左向き
         self.hidarimuki = SKSpriteNode(imageNamed: "hidarimuki")
-        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3, y: frame.midY - view.frame.size.height / 3)
-        self.hidarimuki.xScale = 0.7
-        self.hidarimuki.yScale = 0.9
+        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3, y: frame.midY - view.frame.size.height / 4)
+        self.hidarimuki.xScale = 0.4
+        self.hidarimuki.yScale = 0.4
         self.hidarimuki.zPosition = 2
         addChild(self.hidarimuki)
         
@@ -107,21 +107,25 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
             }else if touchNode == hidarimuki {
                 ugoki = 2
             }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
-    
+    //タッチが終わった時
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
             let location = touch.location(in: self)
             let touchNode = self.atPoint(location)
+            //ugokiの変数を0にする
             if touchNode == migimuki {
                 ugoki = 0
+            //同様
             }else if touchNode == hidarimuki {
                 ugoki = 0
             }
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -132,14 +136,14 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     override func update(_ currentTime: TimeInterval) {
         //もしugokiが1なら
         if ugoki == 1 {
-            //右に動く
-            let moveToRight = SKAction.moveTo(x: self.player.position.x + 15, duration: 0.2)
+            //右に25px動く
+            let moveToRight = SKAction.moveTo(x: self.player.position.x + 25, duration: 0.2)
             //それを実行する
             player.run(moveToRight)
         //もしugokiが2なら
         }else if ugoki == 2 {
-            //左に動く
-            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 15, duration: 0.2)
+            //左に25px動く
+            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 25, duration: 0.2)
             //それを実行する
             player.run(moveToLeft)
         }
