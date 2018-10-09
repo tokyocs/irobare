@@ -14,15 +14,22 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //背景
-        let bg = UIImageView(frame: CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: self.view.frame.size.height))
-        bg.image = UIImage(named: "playscreen.png")
-        bg.layer.zPosition = -1
-        self.view.addSubview(bg)
-        let scene = GameScene(size:CGSize(width: 750,height: 1334))
-        let skView = self.view as! SKView
-        scene.scaleMode = .aspectFit
-        skView.presentScene(scene)
+        
+        if let view = self.view as! SKView? {
+            // Load the SKScene from 'GameScene.sks'
+            if let scene = SKScene(fileNamed: "GameScene") {
+                // Set the scale mode to scale to fit the window
+                scene.scaleMode = .aspectFill
+                
+                // Present the scene
+                view.presentScene(scene)
+            }
+            
+            view.ignoresSiblingOrder = true
+            
+            view.showsFPS = true
+            view.showsNodeCount = true
+        }
         
     }
 
