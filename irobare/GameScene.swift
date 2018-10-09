@@ -45,13 +45,15 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         //背景
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
         self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.playscreen.size = self.size
+        self.playscreen.xScale = 1
+        self.playscreen.yScale = 1
+        self.playscreen.zPosition = -1
         addChild(self.playscreen)
         
         self.player = SKSpriteNode(imageNamed: "player")
-        self.player.position = CGPoint(x: 0, y: 0)
-        self.player.xScale = 2
-        self.player.yScale = 3
+        self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
+        self.player.xScale = 0.9
+        self.player.yScale = 0.9
         self.player.zPosition = 1
         addChild(self.player)
         
