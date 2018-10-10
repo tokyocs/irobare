@@ -49,6 +49,8 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     
     
     override func didMove(to view: SKView) {
+        //ボール出す
+        addBall()
         
         //背景
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
@@ -67,8 +69,8 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
         self.enemyPlayer.position = CGPoint(x: frame.width / 4, y: frame.midY - view.frame.size.height / 5)
-        self.enemyPlayer.xScale = 0.8
-        self.enemyPlayer.yScale = 0.8
+        self.enemyPlayer.xScale = 0.9
+        self.enemyPlayer.yScale = 0.9
         self.enemyPlayer.zPosition = 1
         addChild(self.enemyPlayer)
         //右向き
@@ -105,8 +107,11 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         let index = Int(arc4random_uniform(UInt32(names.count)))
         let name = names[index]
         let ball = SKSpriteNode(imageNamed: name)
-        ball.position = CGPoint(x: 0, y: 0)
+        ball.xScale = 0.06
+        ball.yScale = 0.06
+        ball.position = CGPoint(x: frame.midX, y: 280)
         ball.zPosition = 1
+        addChild(ball)
     }
         
     
