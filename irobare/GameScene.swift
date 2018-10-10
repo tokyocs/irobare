@@ -39,6 +39,9 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     //ゲーム中の画面
     var playscreen: SKSpriteNode!
     
+    //0から3までの値を取得する
+    let random = arc4random_uniform(4)
+    
     //動きの変数
     var ugoki:Int = 0
     
@@ -97,6 +100,15 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     func touchUp(atPoint pos : CGPoint) {
         
     }
+    func addBall() {
+        let names = ["bare-bo-ru", "bo-ringball", "tomato"]
+        let index = Int(arc4random_uniform(UInt32(names.count)))
+        let name = names[index]
+        let ball = SKSpriteNode(imageNamed: name)
+        ball.position = CGPoint(x: 0, y: 0)
+        ball.zPosition = 1
+    }
+        
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
@@ -136,14 +148,14 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     override func update(_ currentTime: TimeInterval) {
         //もしugokiが1なら
         if ugoki == 1 {
-            //右に25px動く
-            let moveToRight = SKAction.moveTo(x: self.player.position.x + 25, duration: 0.2)
+            //右に35px動く
+            let moveToRight = SKAction.moveTo(x: self.player.position.x + 35, duration: 0.2)
             //それを実行する
             player.run(moveToRight)
         //もしugokiが2なら
         }else if ugoki == 2 {
-            //左に25px動く
-            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 25, duration: 0.2)
+            //左に35px動く
+            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 35, duration: 0.2)
             //それを実行する
             player.run(moveToLeft)
         }
