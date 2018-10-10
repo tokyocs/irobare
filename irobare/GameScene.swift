@@ -70,16 +70,16 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         addChild(self.enemyPlayer)
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
-        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 4)
-        self.migimuki.xScale = 0.4
-        self.migimuki.yScale = 0.4
+        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 3.2)
+        self.migimuki.xScale = 0.3
+        self.migimuki.yScale = 0.3
         self.migimuki.zPosition = 2
         addChild(self.migimuki)
         //左向き
         self.hidarimuki = SKSpriteNode(imageNamed: "hidarimuki")
-        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3, y: frame.midY - view.frame.size.height / 4)
-        self.hidarimuki.xScale = 0.4
-        self.hidarimuki.yScale = 0.4
+        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.6, y: frame.midY - view.frame.size.height / 3.2)
+        self.hidarimuki.xScale = 0.3
+        self.hidarimuki.yScale = 0.3
         self.hidarimuki.zPosition = 2
         addChild(self.hidarimuki)
         
