@@ -13,7 +13,12 @@ import AVFoundation
 
 
 
-class GameScene: SKScene, AVAudioPlayerDelegate{
+class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
+    
+    let playerCategory: UInt32 = 0b0001
+    let enemyplayerCategory: UInt32 = 0b0010
+    let ballCategory: UInt32 = 0b0100
+    
     //プレイヤー
     var player: SKSpriteNode!
     //敵
@@ -39,10 +44,18 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     //ゲーム中の画面
     var playscreen: SKSpriteNode!
     
+    //0から3までの値を取得する
+    let random = arc4random_uniform(4)
+    
+    //動きの変数
+    var ugoki:Int = 0
+    
     
     
     
     override func didMove(to view: SKView) {
+        //ボール出す
+        addBall()
         
         //背景
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
@@ -53,10 +66,13 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         addChild(self.playscreen)
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
-        self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
+        self.player.position = CGPoint(x: frame.midX, y: frame.midY)
         self.player.xScale = 0.9
         self.player.yScale = 0.9
         self.player.zPosition = 1
+        self.player.physicsBody = SKPhysicsBody(circleOfRadius: self.player.frame.width * 0.7)
+        self.player.physicsBody?.categoryBitMask = playerCategory
+        self.player.physicsBody?.affectedByGravity = true
         addChild(self.player)
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
@@ -64,7 +80,24 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.enemyPlayer.xScale = 0.9
         self.enemyPlayer.yScale = 0.9
         self.enemyPlayer.zPosition = 1
+        self.enemyPlayer.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
+        self.enemyPlayer.physicsBody?.categoryBitMask = enemyplayerCategory
+        self.enemyPlayer.physicsBody?.affectedByGravity = true
         addChild(self.enemyPlayer)
+        //右向き
+        self.migimuki = SKSpriteNode(imageNamed: "migimuki")
+        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 3.2)
+        self.migimuki.xScale = 0.3
+        self.migimuki.yScale = 0.3
+        self.migimuki.zPosition = 2
+        addChild(self.migimuki)
+        //左向き
+        self.hidarimuki = SKSpriteNode(imageNamed: "hidarimuki")
+        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.6, y: frame.midY - view.frame.size.height / 3.2)
+        self.hidarimuki.xScale = 0.3
+        self.hidarimuki.yScale = 0.3
+        self.hidarimuki.zPosition = 2
+        addChild(self.hidarimuki)
         
     }
     
@@ -80,17 +113,50 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     func touchUp(atPoint pos : CGPoint) {
         
     }
+    func addBall() {
+        let names = ["bare-bo-ru", "bo-ringball", "tomato"]
+        let index = Int(arc4random_uniform(UInt32(names.count)))
+        let name = names[index]
+        let ball = SKSpriteNode(imageNamed: name)
+        ball.xScale = 0.06
+        ball.yScale = 0.06
+        ball.position = CGPoint(x: frame.midX, y: 280)
+        ball.zPosition = 1
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.6)
+        ball.physicsBody?.categoryBitMask = ballCategory
+        ball.physicsBody?.affectedByGravity = true
+        addChild(ball)
+    }
+        
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        for touch: AnyObject in touches {
+            let location = touch.location(in: self)
+            let touchNode = self.atPoint(location)
+            if touchNode == migimuki {
+                ugoki = 1
+            }else if touchNode == hidarimuki {
+                ugoki = 2
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }
-    
+    //タッチが終わった時
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        for touch: AnyObject in touches {
+            let location = touch.location(in: self)
+            let touchNode = self.atPoint(location)
+            //ugokiの変数を0にする
+            if touchNode == migimuki {
+                ugoki = 0
+            //同様
+            }else if touchNode == hidarimuki {
+                ugoki = 0
+            }
+        }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -99,6 +165,18 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     
     
     override func update(_ currentTime: TimeInterval) {
-        // Called before each frame is rendered
+        //もしugokiが1なら
+        if ugoki == 1 {
+            //右に35px動く
+            let moveToRight = SKAction.moveTo(x: self.player.position.x + 35, duration: 0.2)
+            //それを実行する
+            player.run(moveToRight)
+        //もしugokiが2なら
+        }else if ugoki == 2 {
+            //左に35px動く
+            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 35, duration: 0.2)
+            //それを実行する
+            player.run(moveToLeft)
+        }
     }
 }
