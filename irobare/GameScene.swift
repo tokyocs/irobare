@@ -13,12 +13,7 @@ import AVFoundation
 
 
 
-class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
-    
-    let playerCategory: UInt32 = 0b0001
-    let enemyplayerCategory: UInt32 = 0b0010
-    let ballCategory: UInt32 = 0b0100
-    
+class GameScene: SKScene, AVAudioPlayerDelegate{
     //プレイヤー
     var player: SKSpriteNode!
     //敵
@@ -27,20 +22,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     var bare_ball: SKSpriteNode!
     //ボーリングボール
     var boringball: SKSpriteNode!
+    //ミイラボール
+    var miiraball: SKSpriteNode!
+    //トマトボール
+    var tomato: SKSpriteNode!
     //左向きやじるし
     var hidarimuki: SKSpriteNode!
     //右向き矢印
     var migimuki: SKSpriteNode!
-    //トマトボール
-    var tomato: SKSpriteNode!
-    //トマト罰ゲーム味方
-    var tomatomikata: SKSpriteNode!
-    //トマト罰ゲーム敵
-    var tomatoteki: SKSpriteNode!
+    //ミイラになる味方
+    var miiraninarumikata: SKSpriteNode!
+    //ミイラになる敵
+    var miiraninaruteki: SKSpriteNode!
     //潰れた味方
     var tuburetamikata: SKSpriteNode!
     //潰れた敵
     var tuburetateki: SKSpriteNode!
+    //トマト罰ゲーム味方
+    var tomatomikata: SKSpriteNode!
+    //トマト罰ゲーム敵
+    var tomatoteki: SKSpriteNode!
     //ゲーム中の画面
     var playscreen: SKSpriteNode!
     
@@ -54,8 +55,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
     
     override func didMove(to view: SKView) {
-        //ボール出す
-        addBall()
         
         //背景
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
@@ -66,23 +65,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         addChild(self.playscreen)
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
-        self.player.position = CGPoint(x: frame.midX, y: frame.midY)
+        self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
         self.player.xScale = 0.9
         self.player.yScale = 0.9
         self.player.zPosition = 1
-        self.player.physicsBody = SKPhysicsBody(circleOfRadius: self.player.frame.width * 0.7)
-        self.player.physicsBody?.categoryBitMask = playerCategory
-        self.player.physicsBody?.affectedByGravity = true
         addChild(self.player)
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
         self.enemyPlayer.position = CGPoint(x: frame.width / 4, y: frame.midY - view.frame.size.height / 5)
-        self.enemyPlayer.xScale = 0.9
-        self.enemyPlayer.yScale = 0.9
+        self.enemyPlayer.xScale = 0.8
+        self.enemyPlayer.yScale = 0.8
         self.enemyPlayer.zPosition = 1
-        self.enemyPlayer.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
-        self.enemyPlayer.physicsBody?.categoryBitMask = enemyplayerCategory
-        self.enemyPlayer.physicsBody?.affectedByGravity = true
         addChild(self.enemyPlayer)
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
@@ -118,14 +111,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         let index = Int(arc4random_uniform(UInt32(names.count)))
         let name = names[index]
         let ball = SKSpriteNode(imageNamed: name)
-        ball.xScale = 0.06
-        ball.yScale = 0.06
-        ball.position = CGPoint(x: frame.midX, y: 280)
+        ball.position = CGPoint(x: 0, y: 0)
         ball.zPosition = 1
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.6)
-        ball.physicsBody?.categoryBitMask = ballCategory
-        ball.physicsBody?.affectedByGravity = true
-        addChild(ball)
     }
         
     
