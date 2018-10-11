@@ -13,7 +13,12 @@ import AVFoundation
 
 
 
-class GameScene: SKScene, AVAudioPlayerDelegate{
+class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
+    
+    let playerCategory: UInt32 = 0b0001
+    let enemyplayerCategory: UInt32 = 0b0010
+    let ballCategory: UInt32 = 0b0100
+    
     //プレイヤー
     var player: SKSpriteNode!
     //敵
@@ -61,10 +66,13 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         addChild(self.playscreen)
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
-        self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
+        self.player.position = CGPoint(x: frame.midX, y: frame.midY)
         self.player.xScale = 0.9
         self.player.yScale = 0.9
         self.player.zPosition = 1
+        self.player.physicsBody = SKPhysicsBody(circleOfRadius: self.player.frame.width * 0.7)
+        self.player.physicsBody?.categoryBitMask = playerCategory
+        self.player.physicsBody?.affectedByGravity = true
         addChild(self.player)
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
@@ -72,6 +80,9 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.enemyPlayer.xScale = 0.9
         self.enemyPlayer.yScale = 0.9
         self.enemyPlayer.zPosition = 1
+        self.enemyPlayer.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
+        self.enemyPlayer.physicsBody?.categoryBitMask = enemyplayerCategory
+        self.enemyPlayer.physicsBody?.affectedByGravity = true
         addChild(self.enemyPlayer)
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
@@ -111,6 +122,9 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         ball.yScale = 0.06
         ball.position = CGPoint(x: frame.midX, y: 280)
         ball.zPosition = 1
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.6)
+        ball.physicsBody?.categoryBitMask = ballCategory
+        ball.physicsBody?.affectedByGravity = true
         addChild(ball)
     }
         
