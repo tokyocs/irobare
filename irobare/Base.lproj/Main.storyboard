@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bo-ruhaikei" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-ol-rpz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bo-ruusiro" translatesAutoresizingMaskIntoConstraints="NO" id="kmF-ol-rpz">
                                 <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
@@ -170,7 +170,7 @@
     <resources>
         <image name="bare-bo-ru" width="800" height="800"/>
         <image name="bo-ringball" width="800" height="800"/>
-        <image name="bo-ruhaikei" width="960" height="720"/>
+        <image name="bo-ruusiro" width="960" height="720"/>
         <image name="menu" width="499" height="330"/>
         <image name="tomato" width="800" height="800"/>
     </resources>
