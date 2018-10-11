@@ -43,7 +43,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     var tuburetateki: SKSpriteNode!
     //ゲーム中の画面
     var playscreen: SKSpriteNode!
-    
+    //ネット
+    var net: SKSpriteNode!
+    //プラットフォーム１
+    var platform1: SKSpriteNode!
+    //プラットフォーム2
+    var platform2: SKSpriteNode!
+
     //0から3までの値を取得する
     let random = arc4random_uniform(4)
     
@@ -60,8 +66,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         //背景
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
         self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.playscreen.xScale = 1
-        self.playscreen.yScale = 1
+        self.playscreen.xScale = 1.3
+        self.playscreen.yScale = 1.3
+        
+        
         self.playscreen.zPosition = -1
         addChild(self.playscreen)
         //プレイヤー
@@ -89,16 +97,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 3.2)
         self.migimuki.xScale = 0.3
         self.migimuki.yScale = 0.3
-        self.migimuki.zPosition = 2
+        self.migimuki.zPosition = 3
         addChild(self.migimuki)
         //左向き
         self.hidarimuki = SKSpriteNode(imageNamed: "hidarimuki")
         self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.6, y: frame.midY - view.frame.size.height / 3.2)
         self.hidarimuki.xScale = 0.3
         self.hidarimuki.yScale = 0.3
-        self.hidarimuki.zPosition = 2
+        self.hidarimuki.zPosition = 3
         addChild(self.hidarimuki)
-        
+//        //プラットフォーム１
+        self.platform1 = SKSpriteNode(imageNamed: "platform1")
+        self.platform1.position = CGPoint(x: frame.midX, y: frame.midY - view.frame.size.height / 3.2)
+        self.platform1.xScale = 1
+        self.platform1.yScale = 1
+        self.platform1.zPosition = 2
+        addChild(self.platform1)
+        //プラットフォーム２
+        self.platform2 = SKSpriteNode(imageNamed: "platform2")
+        self.platform2.position = CGPoint(x: frame.midX - view.frame.size.width / 3.2, y: frame.midY - view.frame.size.height / 3.2)
+        self.platform2.xScale = 1
+        self.platform2.yScale = 1
+        self.platform2.zPosition = 2
+        addChild(self.platform2)
+        //ねっと
+        self.net = SKSpriteNode(imageNamed: "net")
+        self.net.position = CGPoint(x: frame.midX , y: frame.midY - view.frame.size.height / 5.9)
+        self.net.xScale = 1
+        self.net.yScale = 1
+        self.net.zPosition = 3
+        addChild(self.net)
     }
     
     
