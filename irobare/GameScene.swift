@@ -18,6 +18,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     let playerCategory: UInt32 = 0b0001
     let enemyplayerCategory: UInt32 = 0b0010
     let ballCategory: UInt32 = 0b0100
+    let platform1Category: UInt32 = 0b1000
+    let platform2Category: UInt32 = 0b0011
     
     //プレイヤー
     var player: SKSpriteNode!
@@ -106,19 +108,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.hidarimuki.yScale = 0.3
         self.hidarimuki.zPosition = 3
         addChild(self.hidarimuki)
-//        //プラットフォーム１
+        //プラットフォーム１
         self.platform1 = SKSpriteNode(imageNamed: "platform1")
-        self.platform1.position = CGPoint(x: frame.midX, y: frame.midY - view.frame.size.height / 3.2)
+        self.platform1.position = CGPoint(x: frame.midX + view.frame.size.width / 4.5, y: frame.midY - view.frame.size.height / 3.2)
         self.platform1.xScale = 1
         self.platform1.yScale = 1
         self.platform1.zPosition = 2
+        self.platform1.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
+        self.platform1.physicsBody?.categoryBitMask = enemyplayerCategory
+        self.platform1.physicsBody?.affectedByGravity = true
         addChild(self.platform1)
         //プラットフォーム２
         self.platform2 = SKSpriteNode(imageNamed: "platform2")
-        self.platform2.position = CGPoint(x: frame.midX - view.frame.size.width / 3.2, y: frame.midY - view.frame.size.height / 3.2)
+        self.platform2.position = CGPoint(x: frame.midX - view.frame.size.width / 4.5, y: frame.midY - view.frame.size.height / 3.2)
         self.platform2.xScale = 1
         self.platform2.yScale = 1
         self.platform2.zPosition = 2
+        
         addChild(self.platform2)
         //ねっと
         self.net = SKSpriteNode(imageNamed: "net")
