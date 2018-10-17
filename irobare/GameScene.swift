@@ -82,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.player.zPosition = 1
         self.player.physicsBody = SKPhysicsBody(circleOfRadius: self.player.frame.width * 0.7)
         self.player.physicsBody?.categoryBitMask = playerCategory
-        self.player.physicsBody?.affectedByGravity = true
+        self.player.physicsBody?.affectedByGravity = false
         addChild(self.player)
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
@@ -92,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.enemyPlayer.zPosition = 1
         self.enemyPlayer.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
         self.enemyPlayer.physicsBody?.categoryBitMask = enemyplayerCategory
-        self.enemyPlayer.physicsBody?.affectedByGravity = true
+        self.enemyPlayer.physicsBody?.affectedByGravity = false
         addChild(self.enemyPlayer)
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
@@ -110,21 +110,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         addChild(self.hidarimuki)
         //プラットフォーム１
         self.platform1 = SKSpriteNode(imageNamed: "platform1")
-        self.platform1.position = CGPoint(x: frame.midX + view.frame.size.width / 4.5, y: frame.midY - view.frame.size.height / 3.2)
-        self.platform1.xScale = 1
-        self.platform1.yScale = 1
-        self.platform1.zPosition = 2
-        self.platform1.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
-        self.platform1.physicsBody?.categoryBitMask = enemyplayerCategory
-        self.platform1.physicsBody?.affectedByGravity = true
+
+        self.platform1.position = CGPoint(x: frame.midX - view.frame.size.width / 3.1, y: frame.midY - view.frame.size.height / 3.2)
+        self.platform1.xScale = 0.5
+        self.platform1.yScale = 0.1
+        self.platform1.zPosition = 3
         addChild(self.platform1)
         //プラットフォーム２
         self.platform2 = SKSpriteNode(imageNamed: "platform2")
-        self.platform2.position = CGPoint(x: frame.midX - view.frame.size.width / 4.5, y: frame.midY - view.frame.size.height / 3.2)
-        self.platform2.xScale = 1
-        self.platform2.yScale = 1
-        self.platform2.zPosition = 2
-        
+        self.platform2.position = CGPoint(x: frame.midX + view.frame.size.width / 3.05, y: frame.midY - view.frame.size.height / 3.2)
+        self.platform2.xScale = 0.5
+        self.platform2.yScale = 0.1
+        self.platform2.zPosition = 3
+
+      
         addChild(self.platform2)
         //ねっと
         self.net = SKSpriteNode(imageNamed: "net")
