@@ -18,6 +18,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     let playerCategory: UInt32 = 0b0001
     let enemyplayerCategory: UInt32 = 0b0010
     let ballCategory: UInt32 = 0b0100
+    let platform1Category: UInt32 = 0b1000
+    let platform2Category: UInt32 = 0b0011
     
     //プレイヤー
     var player: SKSpriteNode!
@@ -108,6 +110,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         addChild(self.hidarimuki)
         //プラットフォーム１
         self.platform1 = SKSpriteNode(imageNamed: "platform1")
+
         self.platform1.position = CGPoint(x: frame.midX - view.frame.size.width / 3.1, y: frame.midY - view.frame.size.height / 3.2)
         self.platform1.xScale = 0.5
         self.platform1.yScale = 0.1
@@ -119,6 +122,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.platform2.xScale = 0.5
         self.platform2.yScale = 0.1
         self.platform2.zPosition = 3
+
+      
         addChild(self.platform2)
         //ねっと
         self.net = SKSpriteNode(imageNamed: "net")
