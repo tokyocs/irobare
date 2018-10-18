@@ -171,7 +171,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         ball.physicsBody?.categoryBitMask = ballCategory
         ball.physicsBody?.velocity = CGVector(dx: -180, dy: 100)
         ball.physicsBody?.affectedByGravity = true
-        ball.physicsBody?.restitution = 0.8
+        ball.physicsBody?.restitution = 1.0
         ball.physicsBody?.isDynamic = true
         addChild(ball)
     }
