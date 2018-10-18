@@ -63,6 +63,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
     
     override func didMove(to view: SKView) {
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         //ボール出す
         addBall()
         
@@ -140,7 +141,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.net.physicsBody?.categoryBitMask = netCategory
         self.net.physicsBody = SKPhysicsBody(rectangleOf: self.net.size)
         self.net.physicsBody?.affectedByGravity = false
-        self.net.physicsBody?.isDynamic = true
+        self.net.physicsBody?.isDynamic = false
         self.net.physicsBody?.allowsRotation = false
         addChild(self.net)
     }
@@ -166,10 +167,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         ball.yScale = 0.06
         ball.position = CGPoint(x: frame.midX, y: 280)
         ball.zPosition = 1
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.6)
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.9)
         ball.physicsBody?.categoryBitMask = ballCategory
+        ball.physicsBody?.velocity = CGVector(dx: -180, dy: 100)
         ball.physicsBody?.affectedByGravity = true
         ball.physicsBody?.restitution = 0.8
+        ball.physicsBody?.isDynamic = true
         addChild(ball)
     }
         
@@ -213,13 +216,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         //もしugokiが1なら
         if ugoki == 1 {
             //右に35px動く
-            let moveToRight = SKAction.moveTo(x: self.player.position.x + 35, duration: 0.2)
+            let moveToRight = SKAction.moveTo(x: self.player.position.x + 50, duration: 0.2)
             //それを実行する
             player.run(moveToRight)
         //もしugokiが2なら
         }else if ugoki == 2 {
             //左に35px動く
-            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 35, duration: 0.2)
+            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 50, duration: 0.2)
             //それを実行する
             player.run(moveToLeft)
         }
