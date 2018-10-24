@@ -15,11 +15,12 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
-    let playerCategory: UInt32 = 0b0001
-    let enemyplayerCategory: UInt32 = 0b0010
-    let ballCategory: UInt32 = 0b0100
-    let platform1Category: UInt32 = 0b1000
-    let platform2Category: UInt32 = 0b0011
+    let playerCategory: UInt32 = 1 << 1
+    let enemyplayerCategory: UInt32 = 1 << 2
+    let ballCategory: UInt32 = 1 << 3
+    let platform1Category: UInt32 = 1 << 4
+    let platform2Category: UInt32 = 1 << 5
+    let netCategory: UInt32 = 1 << 6
     
     //プレイヤー
     var player: SKSpriteNode!
@@ -62,75 +63,86 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
     
     override func didMove(to view: SKView) {
+        self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         //ボール出す
         addBall()
         
         //背景
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
         self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.playscreen.xScale = 1.3
-        self.playscreen.yScale = 1.3
-        
-        
+        self.playscreen.xScale = 1.73
+        self.playscreen.yScale = 1.73
         self.playscreen.zPosition = -1
         addChild(self.playscreen)
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
-        self.player.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.player.xScale = 0.9
-        self.player.yScale = 0.9
-        self.player.zPosition = 1
-        self.player.physicsBody = SKPhysicsBody(circleOfRadius: self.player.frame.width * 0.7)
+        self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
+        self.player.xScale = 1.1
+        self.player.yScale = 1.1
+        self.player.zPosition = 2
+        self.player.physicsBody = SKPhysicsBody(circleOfRadius: self.player.frame.width * 0.9)
         self.player.physicsBody?.categoryBitMask = playerCategory
-        self.player.physicsBody?.affectedByGravity = false
+        self.player.physicsBody?.affectedByGravity = true
+        self.player.physicsBody?.allowsRotation = false
         addChild(self.player)
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
-        self.enemyPlayer.position = CGPoint(x: frame.width / 4, y: frame.midY - view.frame.size.height / 5)
-        self.enemyPlayer.xScale = 0.9
-        self.enemyPlayer.yScale = 0.9
-        self.enemyPlayer.zPosition = 1
-        self.enemyPlayer.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.7)
+        self.enemyPlayer.position = CGPoint(x: frame.width / 3.8, y: frame.midY - view.frame.size.height / 5)
+        self.enemyPlayer.xScale = 1.1
+        self.enemyPlayer.yScale = 1.1
+        self.enemyPlayer.zPosition = 2
+        self.enemyPlayer.physicsBody = SKPhysicsBody(circleOfRadius: self.enemyPlayer.frame.width * 0.9)
         self.enemyPlayer.physicsBody?.categoryBitMask = enemyplayerCategory
-        self.enemyPlayer.physicsBody?.affectedByGravity = false
+        self.enemyPlayer.physicsBody?.affectedByGravity = true
+        self.enemyPlayer.physicsBody?.allowsRotation = false
         addChild(self.enemyPlayer)
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
-        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 3.2)
-        self.migimuki.xScale = 0.3
-        self.migimuki.yScale = 0.3
+        self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.1, y: frame.midY - view.frame.size.height / 2.8)
+        self.migimuki.xScale = 0.5
+        self.migimuki.yScale = 0.5
         self.migimuki.zPosition = 3
         addChild(self.migimuki)
         //左向き
         self.hidarimuki = SKSpriteNode(imageNamed: "hidarimuki")
-        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.6, y: frame.midY - view.frame.size.height / 3.2)
-        self.hidarimuki.xScale = 0.3
-        self.hidarimuki.yScale = 0.3
+        self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 2.3, y: frame.midY - view.frame.size.height / 2.8)
+        self.hidarimuki.xScale = 0.5
+        self.hidarimuki.yScale = 0.5
         self.hidarimuki.zPosition = 3
         addChild(self.hidarimuki)
         //プラットフォーム１
         self.platform1 = SKSpriteNode(imageNamed: "platform1")
-
-        self.platform1.position = CGPoint(x: frame.midX - view.frame.size.width / 3.1, y: frame.midY - view.frame.size.height / 3.2)
-        self.platform1.xScale = 0.5
-        self.platform1.yScale = 0.1
-        self.platform1.zPosition = 3
+        self.platform1.position = CGPoint(x: frame.midX - view.frame.size.width / 3.1, y: frame.midY - view.frame.size.height / 2)
+        self.platform1.xScale = 0.7
+        self.platform1.yScale = 0.7
+        self.platform1.zPosition = -1
+        self.platform1.physicsBody = SKPhysicsBody(rectangleOf: self.platform1.size)
+        self.platform1.physicsBody?.categoryBitMask = platform1Category
+        self.platform1.physicsBody?.affectedByGravity = false
+        self.platform1.physicsBody?.isDynamic = false
         addChild(self.platform1)
         //プラットフォーム２
         self.platform2 = SKSpriteNode(imageNamed: "platform2")
-        self.platform2.position = CGPoint(x: frame.midX + view.frame.size.width / 3.05, y: frame.midY - view.frame.size.height / 3.2)
-        self.platform2.xScale = 0.5
-        self.platform2.yScale = 0.1
-        self.platform2.zPosition = 3
-
-      
+        self.platform2.position = CGPoint(x: frame.midX + view.frame.size.width / 3.05, y: frame.midY - view.frame.size.height / 2)
+        self.platform2.xScale = 0.7
+        self.platform2.yScale = 0.7
+        self.platform2.zPosition = -1
+        self.platform2.physicsBody = SKPhysicsBody(rectangleOf: self.platform2.size)
+        self.platform2.physicsBody?.categoryBitMask = platform2Category
+        self.platform2.physicsBody?.affectedByGravity = false
+        self.platform2.physicsBody?.isDynamic = false
         addChild(self.platform2)
         //ねっと
         self.net = SKSpriteNode(imageNamed: "net")
-        self.net.position = CGPoint(x: frame.midX , y: frame.midY - view.frame.size.height / 5.9)
-        self.net.xScale = 1
-        self.net.yScale = 1
-        self.net.zPosition = 3
+        self.net.position = CGPoint(x: frame.midX , y: frame.midY - view.frame.size.height / 3.5)
+        self.net.xScale = 0.9
+        self.net.yScale = 0.9
+        self.net.zPosition = 1
+        self.net.physicsBody?.categoryBitMask = netCategory
+        self.net.physicsBody = SKPhysicsBody(rectangleOf: self.net.size)
+        self.net.physicsBody?.affectedByGravity = false
+        self.net.physicsBody?.isDynamic = false
+        self.net.physicsBody?.allowsRotation = false
         addChild(self.net)
     }
     
@@ -155,9 +167,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         ball.yScale = 0.06
         ball.position = CGPoint(x: frame.midX, y: 280)
         ball.zPosition = 1
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.6)
+        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.9)
         ball.physicsBody?.categoryBitMask = ballCategory
+        ball.physicsBody?.velocity = CGVector(dx: -180, dy: 100)
         ball.physicsBody?.affectedByGravity = true
+        ball.physicsBody?.restitution = 1.0
+        ball.physicsBody?.isDynamic = true
         addChild(ball)
     }
         
@@ -201,13 +216,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         //もしugokiが1なら
         if ugoki == 1 {
             //右に35px動く
-            let moveToRight = SKAction.moveTo(x: self.player.position.x + 35, duration: 0.2)
+            let moveToRight = SKAction.moveTo(x: self.player.position.x + 50, duration: 0.2)
             //それを実行する
             player.run(moveToRight)
         //もしugokiが2なら
         }else if ugoki == 2 {
             //左に35px動く
-            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 35, duration: 0.2)
+            let moveToLeft = SKAction.moveTo(x: self.player.position.x - 50, duration: 0.2)
             //それを実行する
             player.run(moveToLeft)
         }
