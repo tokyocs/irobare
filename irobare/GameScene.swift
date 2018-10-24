@@ -44,6 +44,8 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
     var tomatoteki: SKSpriteNode!
     //ゲーム中の画面
     var playscreen: SKSpriteNode!
+    //ゲームのホーム画面
+    var homescreen: SKSpriteNode!
     
     //0から3までの値を取得する
     let random = arc4random_uniform(4)
@@ -63,6 +65,7 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.playscreen.yScale = 1
         self.playscreen.zPosition = -1
         addChild(self.playscreen)
+        
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
         self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
@@ -70,6 +73,7 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.player.yScale = 0.9
         self.player.zPosition = 1
         addChild(self.player)
+        
         //敵プレイヤー
         self.enemyPlayer = SKSpriteNode(imageNamed: "enemyPlayer")
         self.enemyPlayer.position = CGPoint(x: frame.width / 4, y: frame.midY - view.frame.size.height / 5)
@@ -77,6 +81,7 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.enemyPlayer.yScale = 0.8
         self.enemyPlayer.zPosition = 1
         addChild(self.enemyPlayer)
+        
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
         self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 6, y: frame.midY - view.frame.size.height / 3.2)
@@ -84,6 +89,7 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
         self.migimuki.yScale = 0.3
         self.migimuki.zPosition = 2
         addChild(self.migimuki)
+        
         //左向き
         self.hidarimuki = SKSpriteNode(imageNamed: "hidarimuki")
         self.hidarimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.6, y: frame.midY - view.frame.size.height / 3.2)
@@ -144,6 +150,8 @@ class GameScene: SKScene, AVAudioPlayerDelegate{
                 ugoki = 0
             }
         }
+        
+        
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
