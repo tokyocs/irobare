@@ -15,6 +15,7 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
+    //物理属性
     let playerCategory: UInt32 = 1 << 1
     let enemyplayerCategory: UInt32 = 1 << 2
     let ballCategory: UInt32 = 1 << 3
@@ -56,7 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     //0から3までの値を取得する
     let random = arc4random_uniform(4)
     
-    //動きの変数
+    //プレイヤーの動きの変数
     var ugoki:Int = 0
     
     var timer: Timer?
@@ -70,12 +71,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         addBall()
         
         //背景
+        //画像登録
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
+        //背景の場所
         self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
+        //背景のサイズ(縦)
         self.playscreen.xScale = 1.73
+        //背景のサイズ(横)
         self.playscreen.yScale = 1.73
+        //前か後ろか
         self.playscreen.zPosition = -1000000
+        //表示
         addChild(self.playscreen)
+        //以後上に習う
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
         self.player.position = CGPoint(x: -frame.width / 4, y: frame.midY - view.frame.size.height / 5)
