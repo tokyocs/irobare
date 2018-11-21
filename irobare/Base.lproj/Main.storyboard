@@ -64,7 +64,6 @@
         <!--View Controller-->
         <scene sceneID="KBp-i4-S4x">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iFs-vg-qEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="7to-A4-69l" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZjO-aP-WR4"/>
@@ -79,7 +78,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.78170262759999998" green="0.85964087040000003" blue="0.80570042860000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="44"/>
-                                <state key="normal" title="←戻る"/>
+                                <state key="normal" title="←戻る">
+                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
                                 <connections>
                                     <segue destination="Pve-C2-xuN" kind="show" id="Yom-F3-mZn"/>
                                 </connections>
@@ -105,6 +106,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iFs-vg-qEn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.546875" y="732.8125"/>
         </scene>
@@ -136,18 +138,6 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="Ag6-60-Mg3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c1l-yy-exc">
-                                <rect key="frame" x="165" y="607" width="188" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.01783030484133416" blue="0.71922038612565453" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
-                                <state key="normal" title="ガチャ">
-                                    <color key="titleColor" red="0.0023150858697955634" green="1" blue="0.0095355935429028982" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <segue destination="07f-7a-BaU" kind="show" id="76R-A2-JmY"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yCP-cK-Qta">
                                 <rect key="frame" x="674" y="607" width="188" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -160,6 +150,18 @@
                                     <segue destination="7to-A4-69l" kind="show" id="MVj-Sx-Loh"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8H-H4-7eK">
+                                <rect key="frame" x="171" y="602" width="202" height="70"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <state key="normal" title="著作権表示">
+                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="VFS-tg-ED0" kind="show" id="kn2-aY-WUO"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -167,6 +169,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ETP-S9-7RG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-588.28125" y="0.78125"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="6ty-G3-eNw">
+            <objects>
+                <viewController id="VFS-tg-ED0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Qd2-E9-Osm"/>
+                        <viewControllerLayoutGuide type="bottom" id="sVP-o2-wFc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="LTX-4D-vWP">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y0d-oU-f4P">
+                                <rect key="frame" x="20" y="643" width="192" height="89"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="44"/>
+                                <state key="normal" title="←戻る">
+                                    <color key="titleColor" red="0.0" green="0.58980089430000004" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Pve-C2-xuN" kind="show" id="7Ho-4U-5HQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ePu-bT-XL5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-580.078125" y="793.75"/>
         </scene>
     </scenes>
     <resources>
@@ -177,6 +210,6 @@
         <image name="tomato" width="173" height="157"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Yom-F3-mZn"/>
+        <segue reference="7Ho-4U-5HQ"/>
     </inferredMetricsTieBreakers>
 </document>
