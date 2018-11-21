@@ -59,6 +59,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     //動きの変数
     var ugoki:Int = 0
     
+    var timer: Timer?
+    
     
     
     
@@ -72,7 +74,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
         self.playscreen.xScale = 1.73
         self.playscreen.yScale = 1.73
-        self.playscreen.zPosition = -1
+        self.playscreen.zPosition = -1000000
         addChild(self.playscreen)
         //プレイヤー
         self.player = SKSpriteNode(imageNamed: "player")
@@ -96,6 +98,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.enemyPlayer.physicsBody?.affectedByGravity = true
         self.enemyPlayer.physicsBody?.allowsRotation = false
         addChild(self.enemyPlayer)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
+            let moveToLeft = SKAction.moveTo(x: -10, duration: 0.3)
+            let moveToRight = SKAction.moveTo(x: 10, duration: 0.3)
+            self.enemyPlayer.run(SKAction.sequence([moveToLeft, moveToRight]))
+        })
+
         //右向き
         self.migimuki = SKSpriteNode(imageNamed: "migimuki")
         self.migimuki.position = CGPoint(x: frame.midX - view.frame.size.width / 3.1, y: frame.midY - view.frame.size.height / 2.8)
@@ -144,6 +153,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.net.physicsBody?.isDynamic = false
         self.net.physicsBody?.allowsRotation = false
         addChild(self.net)
+
     }
     
     
@@ -171,11 +181,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         ball.physicsBody?.categoryBitMask = ballCategory
         ball.physicsBody?.velocity = CGVector(dx: -180, dy: 100)
         ball.physicsBody?.affectedByGravity = true
-        ball.physicsBody?.restitution = 1.0
+        ball.physicsBody?.restitution = 1.1
         ball.physicsBody?.isDynamic = true
         addChild(ball)
+
     }
-        
+    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         for touch: AnyObject in touches {
