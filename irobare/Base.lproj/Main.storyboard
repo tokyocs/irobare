@@ -151,11 +151,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8H-H4-7eK">
-                                <rect key="frame" x="171" y="602" width="202" height="70"/>
+                                <rect key="frame" x="-35" y="708" width="202" height="70"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="著作権表示">
-                                    <color key="titleColor" red="0.0" green="0.97680455450000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="titleShadowColor" red="0.016804177310000001" green="0.19835099580000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
@@ -193,6 +193,10 @@
                                     <segue destination="Pve-C2-xuN" kind="show" id="7Ho-4U-5HQ"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="tyosakukenn " translatesAutoresizingMaskIntoConstraints="NO" id="XvU-41-fzV">
+                                <rect key="frame" x="114" y="141" width="796" height="201"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
@@ -208,6 +212,7 @@
         <image name="gamegacha" width="960" height="720"/>
         <image name="menu" width="499" height="330"/>
         <image name="tomato" width="173" height="157"/>
+        <image name="tyosakukenn " width="684" height="137"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="7Ho-4U-5HQ"/>
