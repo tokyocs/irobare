@@ -75,9 +75,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.playscreen = SKSpriteNode(imageNamed: "playscreen")
         //背景の場所
         self.playscreen.position = CGPoint(x: frame.midX, y: frame.midY)
-        //背景のサイズ(縦)
-        self.playscreen.xScale = 1.73
         //背景のサイズ(横)
+        self.playscreen.xScale = 1.73
+        //背景のサイズ(縦)
         self.playscreen.yScale = 1.73
         //前か後ろか
         self.playscreen.zPosition = -1000000
