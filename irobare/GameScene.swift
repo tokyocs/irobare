@@ -108,9 +108,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         addChild(self.enemyPlayer)
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            let moveToLeft = SKAction.moveTo(x: -10, duration: 0.3)
-            let moveToRight = SKAction.moveTo(x: 10, duration: 0.3)
-            self.enemyPlayer.run(SKAction.sequence([moveToLeft, moveToRight]))
+            let moveToball = SKAction.moveTo(x: -10, duration: 0.3)
+            self.enemyPlayer.run(moveToball)
         })
 
         //右向き
