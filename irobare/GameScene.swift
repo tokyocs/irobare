@@ -23,6 +23,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     let platform2Category: UInt32 = 1 << 5
     let netCategory: UInt32 = 1 << 6
     
+    //ボール
+    var ball: SKSpriteNode!
     //プレイヤー
     var player: SKSpriteNode!
     //敵
@@ -105,11 +107,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.enemyPlayer.physicsBody?.categoryBitMask = enemyplayerCategory
         self.enemyPlayer.physicsBody?.affectedByGravity = true
         self.enemyPlayer.physicsBody?.allowsRotation = false
+
         addChild(self.enemyPlayer)
         
         timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { _ in
-            let moveToball = SKAction.moveTo(x: -10, duration: 0.3)
-            self.enemyPlayer.run(moveToball)
+            if(self.ball.position.x > 0){
+                let moveToball = SKAction.moveTo(x: self.ball.position.x , duration: 0.3)
+                
+                self.enemyPlayer.run(moveToball)
+            }
         })
 
         //右向き
@@ -148,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.platform2.physicsBody?.affectedByGravity = false
         self.platform2.physicsBody?.isDynamic = false
         addChild(self.platform2)
-        //ねっと
+        //ネット
         self.net = SKSpriteNode(imageNamed: "net")
         self.net.position = CGPoint(x: frame.midX , y: frame.midY - view.frame.size.height / 3.5)
         self.net.xScale = 0.9
@@ -179,17 +185,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         let names = ["bare-bo-ru", "bo-ringball", "tomato"]
         let index = Int(arc4random_uniform(UInt32(names.count)))
         let name = names[index]
-        let ball = SKSpriteNode(imageNamed: name)
-        ball.xScale = 0.06
-        ball.yScale = 0.06
-        ball.position = CGPoint(x: frame.midX, y: 280)
-        ball.zPosition = 1
-        ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.9)
-        ball.physicsBody?.categoryBitMask = ballCategory
-        ball.physicsBody?.velocity = CGVector(dx: -180, dy: 100)
-        ball.physicsBody?.affectedByGravity = true
-        ball.physicsBody?.restitution = 1.1
-        ball.physicsBody?.isDynamic = true
+        self.ball = SKSpriteNode(imageNamed: name)
+        self.ball.xScale = 0.06
+        self.ball.yScale = 0.06
+        self.ball.position = CGPoint(x: frame.midX, y: 280)
+        self.ball.zPosition = 1
+        self.ball.physicsBody = SKPhysicsBody(circleOfRadius: ball.frame.width * 0.9)
+        self.ball.physicsBody?.categoryBitMask = ballCategory
+        self.ball.physicsBody?.velocity = CGVector(dx: -180, dy: 100)
+        self.ball.physicsBody?.affectedByGravity = true
+        self.ball.physicsBody?.restitution = 1.1
+        self.ball.physicsBody?.isDynamic = true
         addChild(ball)
 
     }
