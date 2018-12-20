@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FE07736B21C0E3DA0047A50E /* gameoverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE07736A21C0E3DA0047A50E /* gameoverScene.swift */; };
 		FE215702215C69EE00878695 /* 内包する大地.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215701215C69ED00878695 /* 内包する大地.mp3 */; };
 		FE215704215C6A0A00878695 /* 風.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215703215C6A0A00878695 /* 風.mp3 */; };
 		FE215706215C6A4500878695 /* home.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FE215705215C6A4500878695 /* home.mp3 */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FE07736A21C0E3DA0047A50E /* gameoverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = gameoverScene.swift; sourceTree = "<group>"; };
 		FE215701215C69ED00878695 /* 内包する大地.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "内包する大地.mp3"; sourceTree = "<group>"; };
 		FE215703215C6A0A00878695 /* 風.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "風.mp3"; sourceTree = "<group>"; };
 		FE215705215C6A4500878695 /* home.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = home.mp3; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				FEEBED9B2154C691004A12D3 /* GameScene.sks */,
 				FEEBED9D2154C691004A12D3 /* Actions.sks */,
 				FEEBED9F2154C691004A12D3 /* GameScene.swift */,
+				FE07736A21C0E3DA0047A50E /* gameoverScene.swift */,
 				FEEBEDA12154C691004A12D3 /* GameViewController.swift */,
 				FEEBEDA32154C691004A12D3 /* Main.storyboard */,
 				FEEBEDA62154C691004A12D3 /* Assets.xcassets */,
@@ -291,6 +294,7 @@
 			files = (
 				FEEBEDA02154C691004A12D3 /* GameScene.swift in Sources */,
 				FEEBEDA22154C691004A12D3 /* GameViewController.swift in Sources */,
+				FE07736B21C0E3DA0047A50E /* gameoverScene.swift in Sources */,
 				FE2157122163356B00878695 /* ViewController.swift in Sources */,
 				FEEBED9A2154C691004A12D3 /* AppDelegate.swift in Sources */,
 			);

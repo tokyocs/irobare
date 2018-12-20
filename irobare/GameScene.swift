@@ -15,6 +15,9 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
+    //音
+    var BGMPlayer:AVAudioPlayer!
+    
     //物理属性
     let playerCategory: UInt32 = 1 << 1
     let enemyplayerCategory: UInt32 = 1 << 2
@@ -62,10 +65,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
     
     var timer: Timer?
     
-    
-    
+    //音
+    func playBGM(name: String) {
+        guard let path = Bundle.main.path(forResource: name, ofType: "mp3") else {
+            print("home")
+            return
+        }
+        
+        do {
+            // AVAudioPlayerのインスタンス化
+            BGMPlayer = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
+            
+            // AVAudioPlayerのデリゲートをセット
+            BGMPlayer.delegate = self
+            BGMPlayer.numberOfLoops = -1
+            
+            // 音声の再生
+            BGMPlayer.play()
+        } catch {
+        }
+    }
+
     
     override func didMove(to view: SKView) {
+        playBGM(name: "home")
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         //ボール出す
         addBall()
@@ -161,7 +184,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
         self.net.physicsBody?.isDynamic = false
         self.net.physicsBody?.allowsRotation = false
         addChild(self.net)
-
     }
     
     
@@ -245,5 +267,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate, AVAudioPlayerDelegate{
             //それを実行する
             player.run(moveToLeft)
         }
+    }
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("contact")
+        var firstBody: SKPhysicsBody
+        var secondBody: SKPhysicsBody
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
+        } else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
+        }
+        if ((firstBody.categoryBitMask == platform1Category)&&(secondBody.categoryBitMask == ballCategory)){
+            gameOver()
+        }
+    }
+    
+    func gameOver() {
+        isPaused = true
+        //1秒後に画面を移動する
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: false) { _ in
+            // げーム叔一母ーシーに遷移させる。
+            let newScene = gameoverScene(size: (self.scene?.size)!)
+            newScene.scaleMode = SKSceneScaleMode.aspectFill
+            self.view?.presentScene(newScene)
+        }
+        
+        
     }
 }
